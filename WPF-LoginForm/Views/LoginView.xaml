@@ -14,17 +14,17 @@
         AllowsTransparency="True"
         MouseDown="Window_MouseDown">
 
-    <Window.DataContext>
+    <!--<Window.DataContext>
         <viewModel:LoginViewModel/>
     </Window.DataContext>
 
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibility"/>
-    </Window.Resources>
+    </Window.Resources>-->
 
-    <Window.Visibility>
+    <!--<Window.Visibility>
         <Binding Path="IsViewVisible" Mode="TwoWay" Converter="{StaticResource BooleanToVisibility}"/>
-    </Window.Visibility>
+    </Window.Visibility>-->
 
     <Border CornerRadius="12">
         <Border.Background>
@@ -38,16 +38,16 @@
 
             <Border.BorderBrush>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                    <GradientStop Color="#462AD8" Offset="0"/>
-                    <GradientStop Color="#DA34AE" Offset="0.75"/>
-                    <GradientStop Color="#8A16C1" Offset="1"/>
+                    <GradientStop Color="{StaticResource winBorderColor1}" Offset="0"/>
+                    <GradientStop Color="{StaticResource winBorderColor2}" Offset="0.5"/>
+                    <GradientStop Color="{StaticResource winBorderColor3}" Offset="1"/>
                 </LinearGradientBrush>
             </Border.BorderBrush>
 
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
-                    <GradientStop Color="#060531" Offset="0"/>
-                    <GradientStop Color="#1B1448" Offset="1"/>
+                    <GradientStop Color="{StaticResource primaryBackColor1}" Offset="0"/>
+                    <GradientStop Color="{StaticResource primaryBackColor2}" Offset="1"/>
                 </LinearGradientBrush>
             </Border.Background>
 
@@ -60,7 +60,8 @@
                 <Grid Grid.Row="0">
 
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
+                        <ColumnDefinition Width="515*"/>
+                        <ColumnDefinition Width="226*"/>
                         <ColumnDefinition Width="25"/>
                         <ColumnDefinition Width="25"/>
                         <ColumnDefinition Width="5"/>
@@ -72,7 +73,7 @@
                                FontFamily="Montserrat"
                                Grid.Column="0"
                                VerticalAlignment="Center"
-                               Margin="10,0,0,0"/>
+                               Margin="10,9,25,9" Grid.ColumnSpan="3"/>
 
                     <Button x:Name="btnMinimize"                           
                             BorderThickness="0"
@@ -81,8 +82,8 @@
                             FontSize="16"
                             FontFamily="Montserrat"
                             Cursor="Hand"
-                            Grid.Column="1"
-                            Click="btnMinimize_Click">
+                            Grid.Column="2"
+                            Click="btnMinimize_Click" Margin="0.333,0,0,0">
 
                         <Button.Style>
                             <Style TargetType="Button">
@@ -115,8 +116,8 @@
                             FontSize="12"
                             FontFamily="Montserrat"
                             Cursor="Hand"
-                            Grid.Column="2"
-                            Click="btnClose_Click">
+                            Grid.Column="3"
+                            Click="btnClose_Click" Margin="0,0,0.334,0">
 
                         <Button.Style>
                             <Style TargetType="Button">
@@ -141,7 +142,7 @@
                         </Button.Template>
                     </Button>
                 </Grid>
-
+                
                 <StackPanel Width="220"
                             Grid.Row="1"
                             Orientation="Vertical"
@@ -150,14 +151,14 @@
                     <Image Source="/Images/Logo.png"
                            Width="100" Height="100"/>
 
-                    <TextBlock Text="RJ CODE"
+                    <TextBlock Text="Samuel Software"
                                Foreground="White"
                                FontSize="25"
                                FontWeight="Medium"
                                FontFamily="Montserrat"
                                HorizontalAlignment="Center"/>
 
-                    <TextBlock Text="Learning to code is useful no matter what your career ambitions are."
+                    <TextBlock Text="Enter your username and password to proceed."
                                Foreground="LightGray"
                                FontSize="12"
                                FontWeight="Medium"

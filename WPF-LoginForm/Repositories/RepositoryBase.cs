@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace WPF_LoginForm.Repositories
 {
@@ -12,7 +13,7 @@ namespace WPF_LoginForm.Repositories
         private readonly string _connectionString;
         public RepositoryBase()
         {
-            _connectionString = "Server=(local); Database=MVVMLoginDb; Integrated Security=true";
+            _connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
         }
         protected SqlConnection GetConnection()
         {
