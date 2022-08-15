@@ -37,7 +37,6 @@ D:\RJ Code Advance\Source Code C#\2022\WPF-LoginForm - MVVM P2\WPF-LoginForm\obj
 D:\RJ Code Advance\Source Code C#\2022\WPF-LoginForm - MVVM P2\WPF-LoginForm\obj\Debug\CustomControls\BindablePasswordBox.baml
 C:\Users\RyanSamuel_33u3q5i\Source\Repos\Dashboard\WPF-LoginForm\bin\Debug\WPF-LoginForm.exe
 C:\Users\RyanSamuel_33u3q5i\Source\Repos\Dashboard\WPF-LoginForm\bin\Debug\WPF-LoginForm.pdb
-C:\Users\RyanSamuel_33u3q5i\Source\Repos\Dashboard\WPF-LoginForm\obj\Debug\WPF-LoginForm.csproj.AssemblyReference.cache
 C:\Users\RyanSamuel_33u3q5i\Source\Repos\Dashboard\WPF-LoginForm\obj\Debug\CustomControls\BindablePasswordBox.g.cs
 C:\Users\RyanSamuel_33u3q5i\Source\Repos\Dashboard\WPF-LoginForm\obj\Debug\Views\LoginView.g.cs
 C:\Users\RyanSamuel_33u3q5i\Source\Repos\Dashboard\WPF-LoginForm\obj\Debug\Views\MainView.g.cs
