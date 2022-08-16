@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Dashboard.Views"
         xmlns:viewModel="clr-namespace:Dashboard.ViewModels"
+        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp" d:DataContext="{d:DesignInstance Type=viewModel:MainViewModel}"
         mc:Ignorable="d"
         Title="MainWindowView" Height="700" Width="1300"
@@ -13,7 +14,7 @@
         Background="Transparent"
         AllowsTransparency="True">
 
-     
+
 
     <Border CornerRadius="10"
             BorderThickness="1">
@@ -24,14 +25,14 @@
                 <GradientStop Color="{StaticResource winBorderColor3}" Offset="1"/>
             </LinearGradientBrush>
         </Border.BorderBrush>
-        
+
         <Grid>
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="250"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-           
+
             <Border CornerRadius="10,0,0,10"
                     Grid.Column="0">
 
@@ -134,7 +135,52 @@
 
                 </Grid>
             </Border>
+            <Border CornerRadius="10,0,0,10"
+                Grid.Column="1" Margin="20,59,546,403" Width="450" Height="220">
+
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0.7">
+                        <GradientStop Color="{StaticResource secondaryBackColor1}" Offset="0"/>
+                        <GradientStop Color="{StaticResource secondaryBackColor2}" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+
+                <lvc:CartesianChart Series="{Binding SeriesCollection}" LegendLocation="Left">
+                    <lvc:CartesianChart.AxisX>
+                        <lvc:Axis Title="Salesman" Labels="{Binding Labels}"></lvc:Axis>
+                    </lvc:CartesianChart.AxisX>
+                    <lvc:CartesianChart.AxisY>
+                        <lvc:Axis Title="Sold Apps" LabelFormatter="{Binding Formatter}"></lvc:Axis>
+                    </lvc:CartesianChart.AxisY>
+                </lvc:CartesianChart>
+
+            </Border>
+            <Border CornerRadius="10,0,0,10"
+                Grid.Column="1" Margin="527,59,32,403" Width="450" Height="220">
+
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0.7">
+                        <GradientStop Color="{StaticResource secondaryBackColor1}" Offset="0"/>
+                        <GradientStop Color="{StaticResource secondaryBackColor2}" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+
+                <lvc:PieChart LegendLocation="Bottom" DataClick="SalesChart_OnDataClick" Hoverable="False" DataTooltip="{x:Null}">
+                    <lvc:PieChart.Series>
+                        <lvc:PieSeries Title="Maria" Values="3" DataLabels="True"
+                               LabelPoint="{Binding PointLabel}"/>
+                        <lvc:PieSeries Title="Charles" Values="4" DataLabels="True" 
+                               LabelPoint="{Binding PointLabel}"/>
+                        <lvc:PieSeries Title="Frida" Values="6" DataLabels="True" 
+                               LabelPoint="{Binding PointLabel}"/>
+                        <lvc:PieSeries Title="Frederic" Values="2" DataLabels="True" 
+                               LabelPoint="{Binding PointLabel}"/>
+                    </lvc:PieChart.Series>
+                </lvc:PieChart>
+
+            </Border>
+
         </Grid>
     </Border>
-    
+
 </Window>
