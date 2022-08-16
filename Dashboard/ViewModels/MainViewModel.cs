@@ -19,8 +19,8 @@ namespace Dashboard.ViewModels
         private ViewModelBase _currentChildView;
         private string _caption;
         private IconChar _icon;
-
         private IUserRepository userRepository;
+        private ISalesRepository salesRepository;
 
         //Properties
         public UserAccountModel CurrentUserAccount
@@ -86,15 +86,8 @@ namespace Dashboard.ViewModels
         public MainViewModel()
         {
             userRepository = new UserRepository();
+            salesRepository = new SalesRepository();
             CurrentUserAccount = new UserAccountModel();
-
-            //Initialize commands
-            //ShowHomeViewCommand = new ViewModelCommand(ExecuteShowHomeViewCommand);
-            //ShowCustomerViewCommand = new ViewModelCommand(ExecuteShowCustomerViewCommand);
-
-            //Default view
-            //ExecuteShowHomeViewCommand(null);
-
             LoadCurrentUserData();
         }
 
@@ -103,19 +96,13 @@ namespace Dashboard.ViewModels
             var user = userRepository.GetByUsername(Thread.CurrentPrincipal.Identity.Name);
 
         }
+        public SalesModel LoadData(DateTime minDate, DateTime maxDate)
+        {
 
-        //private void ExecuteShowCustomerViewCommand(object obj)
-        //{
-        //    CurrentChildView = new CustomerViewModel();
-        //    Caption = "Customers";
-        //    Icon = IconChar.UserGroup;
-        //}
+            var sales = salesRepository.GetData(minDate, maxDate);
+            return sales;
+        }
 
-        //private void ExecuteShowHomeViewCommand(object obj)
-        //{
-        //    CurrentChildView = new HomeViewModel();
-        //    Caption = "Dashboard";
-        //    Icon = IconChar.Home;
-        //}
+
     }
 }

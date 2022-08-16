@@ -26,6 +26,7 @@ namespace Dashboard.Repositories
         private int numberDays;
         public decimal totalRevenue { get; set; }
         public decimal totalProfit { get; set; }
+        private SalesModel sales;
 
         //Private methods
         private void GetNumberItems(SalesModel sales)
@@ -47,7 +48,7 @@ namespace Dashboard.Repositories
                     //Get Total Number of Products
                     command.CommandText = "select count(id) from Product";
                     sales.NumProducts = (int)command.ExecuteScalar();
-
+                   
                     //Get Total Number of Orders
                     command.CommandText = @"select count(id) from [Order]" +
                                             "where OrderDate between  @fromDate and @toDate";
@@ -202,7 +203,7 @@ namespace Dashboard.Repositories
         //Public methods
         public SalesModel GetData(DateTime startDate, DateTime endDate)
         {
-            SalesModel sales = null;
+            sales = new SalesModel();
             endDate = new DateTime(endDate.Year, endDate.Month, endDate.Day,
                 endDate.Hour, endDate.Minute, 59);
             if (startDate != this.startDate || endDate != this.endDate)

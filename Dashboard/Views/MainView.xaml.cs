@@ -5,6 +5,9 @@ using System.Windows.Input;
 using System.Windows.Interop;
 using LiveCharts;
 using LiveCharts.Wpf;
+using Dashboard.Models;
+using System.Collections.Generic;
+using Dashboard.ViewModels;
 
 namespace Dashboard.Views
 {
@@ -16,10 +19,14 @@ namespace Dashboard.Views
         [DllImport("user32.dll")]
         public static extern IntPtr SendMessage(IntPtr hWnd, int wMsg, int wParam, int lParam);
         public Func<ChartPoint, string> PointLabel { get; set; }
-
+        public SeriesCollection SeriesCollection { get; set; }
+        public string[] Labels { get; set; }
+        public Func<double, string> Formatter { get; set; }
+        
         public MainView()
         {
             InitializeComponent();
+            LoadChartData();
             PointLabel = chartPoint => string.Format("{0} ({1:P})", chartPoint.Y, chartPoint.Participation);
 
         }
@@ -62,6 +69,28 @@ namespace Dashboard.Views
 
             var selectedSeries = (PieSeries)chartpoint.SeriesView;
             selectedSeries.PushOut = 8;
+        }
+        private void LoadChartData()
+        {
+            MainViewModel mvm = new MainViewModel();
+            var sales = mvm.LoadData(DateTime.Now.AddYears(-1), DateTime.MaxValue);
+            var topProduct = sales.TopProductsList;
+            SeriesCollection = new SeriesCollection
+            {
+                 
+            };
+
+            foreach (KeyValuePair<string, int> kvp in topProduct)
+            {
+                SeriesCollection.Add(new ColumnSeries
+                {
+                    Title = kvp.Key,
+                    Values = new ChartValues<double> { kvp.Value }
+                });
+            }
+            Labels = new[] { "Jan", "Feb", "Mar", "Apr", "May" };
+            Formatter = value => value.ToString("N");
+            DataContext = this;
         }
     }
 }

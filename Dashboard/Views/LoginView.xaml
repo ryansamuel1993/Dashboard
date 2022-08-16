@@ -150,14 +150,14 @@
                     <Image Source="/Images/Logo.png"
                            Width="100" Height="100"/>
 
-                    <TextBlock Text="RJ CODE"
+                    <TextBlock Text="Samuel Software"
                                Foreground="White"
                                FontSize="25"
                                FontWeight="Medium"
                                FontFamily="Montserrat"
                                HorizontalAlignment="Center"/>
 
-                    <TextBlock Text="Learning to code is useful no matter what your career ambitions are."
+                    <TextBlock Text="Enter your username and password."
                                Foreground="LightGray"
                                FontSize="12"
                                FontWeight="Medium"
