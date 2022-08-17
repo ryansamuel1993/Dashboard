@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Input;
@@ -6,7 +7,6 @@ using System.Windows.Interop;
 using LiveCharts;
 using LiveCharts.Wpf;
 using Dashboard.Models;
-using System.Collections.Generic;
 using Dashboard.ViewModels;
 
 namespace Dashboard.Views
@@ -74,21 +74,19 @@ namespace Dashboard.Views
         {
             MainViewModel mvm = new MainViewModel();
             var sales = mvm.LoadData(DateTime.Now.AddYears(-1), DateTime.MaxValue);
-            var topProduct = sales.TopProductsList;
-            SeriesCollection = new SeriesCollection
+            SeriesCollection = new SeriesCollection { };
+            //foreach ((KeyValuePair<string, int> kvp, int index) in sales.TopProductsList.Select((item, index) => (item, index)))
+            foreach (KeyValuePair<string, int> kvp in sales.TopProductsList)
             {
-                 
-            };
-
-            foreach (KeyValuePair<string, int> kvp in topProduct)
-            {
+                
                 SeriesCollection.Add(new ColumnSeries
                 {
                     Title = kvp.Key,
                     Values = new ChartValues<double> { kvp.Value }
+                    Series.DataLabelsProperty.
                 });
             }
-            Labels = new[] { "Jan", "Feb", "Mar", "Apr", "May" };
+            Labels = new[] { "" };
             Formatter = value => value.ToString("N");
             DataContext = this;
         }

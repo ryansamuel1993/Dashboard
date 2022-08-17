@@ -197,11 +197,12 @@ namespace Dashboard.Repositories
         //Public methods
         public SalesModel GetData(DateTime startDate, DateTime endDate)
         {
-            sales = new SalesModel();
+            SalesModel sales = null;
             endDate = new DateTime(endDate.Year, endDate.Month, endDate.Day,
                 endDate.Hour, endDate.Minute, 59);
             if (startDate != this.startDate || endDate != this.endDate)
             {
+                sales = new SalesModel();
                 this.startDate = startDate;
                 this.endDate = endDate;
                 this.numberDays = (endDate - startDate).Days;

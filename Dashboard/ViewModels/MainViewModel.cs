@@ -98,7 +98,6 @@ namespace Dashboard.ViewModels
         }
         public SalesModel LoadData(DateTime minDate, DateTime maxDate)
         {
-
             var sales = salesRepository.GetData(minDate, maxDate);
             return sales;
         }

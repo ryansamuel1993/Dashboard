@@ -30,3 +30,5 @@ C:\Users\RyanSamuel_33u3q5i\source\repos\Dashboard\Dashboard\obj\Debug\Dashboard
 C:\Users\RyanSamuel_33u3q5i\source\repos\Dashboard\Dashboard\obj\Debug\Dashboard.Properties.Resources.resources
 C:\Users\RyanSamuel_33u3q5i\source\repos\Dashboard\Dashboard\obj\Debug\Dashboard.exe
 C:\Users\RyanSamuel_33u3q5i\source\repos\Dashboard\Dashboard\obj\Debug\Dashboard.pdb
+C:\Users\RyanSamuel_33u3q5i\source\repos\Dashboard\Dashboard\bin\Debug\System.ValueTuple.dll
+C:\Users\RyanSamuel_33u3q5i\source\repos\Dashboard\Dashboard\bin\Debug\System.ValueTuple.xml

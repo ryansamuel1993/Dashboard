@@ -49,7 +49,7 @@
                                 Height="35"
                                 Margin="15,25,0,40">
 
-                        <Image Source="/Images/Logo.png" Height="30"/>
+                        <Image Source="/Images/logo-fococlipping-standard.png" Height="30" OpacityMask="Black"/>
                         <TextBlock Text="Samuel Software"
                                    Foreground="{StaticResource titleColor2}"
                                    FontSize="20"
@@ -147,10 +147,10 @@
 
                 <lvc:CartesianChart Series="{Binding SeriesCollection}" LegendLocation="Left">
                     <lvc:CartesianChart.AxisX>
-                        <lvc:Axis Title="Salesman" Labels="{Binding Labels}"></lvc:Axis>
+                        <lvc:Axis Title="Products" Labels="{Binding Labels}"></lvc:Axis>
                     </lvc:CartesianChart.AxisX>
                     <lvc:CartesianChart.AxisY>
-                        <lvc:Axis Title="Sold Apps" LabelFormatter="{Binding Formatter}"></lvc:Axis>
+                        <lvc:Axis Title="Quantity sold" LabelFormatter="{Binding Formatter}"></lvc:Axis>
                     </lvc:CartesianChart.AxisY>
                 </lvc:CartesianChart>
 

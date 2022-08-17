@@ -147,7 +147,7 @@
                             Orientation="Vertical"
                             Margin="0,35,0,0">
 
-                    <Image Source="/Images/Logo.png"
+                    <Image Source="/Images/logo-fococlipping-standard.png"
                            Width="100" Height="100"/>
 
                     <TextBlock Text="Samuel Software"
