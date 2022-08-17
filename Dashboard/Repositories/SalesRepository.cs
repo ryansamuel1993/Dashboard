@@ -12,11 +12,6 @@ using Dashboard.Repositories;
 
 namespace Dashboard.Repositories
 {
-    //public struct RevenueByDate
-    //{
-    //    public string Date { get; set; }
-    //    public decimal TotalAmount { get; set; }
-    //}
 
     public class SalesRepository : RepositoryBase, ISalesRepository
     {
@@ -70,14 +65,13 @@ namespace Dashboard.Repositories
                     SqlDataReader reader;
                     command.Connection = connection;
                     //Get Top 5 products
-                    command.CommandText = @"select top 5 P.ProductName, sum(OrderItem.Quantity) as Q
-                                            from OrderItem
-                                            inner join Product P on P.Id = OrderItem.ProductId
-                                            inner
-                                            join [Order] O on O.Id = OrderItem.OrderId
-                                            where OrderDate between @fromDate and @toDate
-                                            group by P.ProductName
-                                            order by Q desc ";
+                    command.CommandText = @"SELECT TOP 5 P.ProductName, sum(OrderItem.Quantity) as Q
+                                            FROM OrderItem
+                                            INNER JOIN Product P on P.Id = OrderItem.ProductId
+                                            INNER JOIN [Order] O on O.Id = OrderItem.OrderId
+                                            WHERE OrderDate BETWEEN @fromDate and @toDate
+                                            GROUP BY P.ProductName
+                                            ORDER BY Q desc ";
                     command.Parameters.Add("@fromDate", System.Data.SqlDbType.DateTime).Value = startDate;
                     command.Parameters.Add("@toDate", System.Data.SqlDbType.DateTime).Value = endDate;
                     reader = command.ExecuteReader();
@@ -89,9 +83,9 @@ namespace Dashboard.Repositories
                     reader.Close();
 
                     //Get Understock
-                    command.CommandText = @"select ProductName, Stock
-                                            from Product
-                                            where Stock <= 6 and IsDiscontinued = 0";
+                    command.CommandText = @"SELECT ProductName, Stock
+                                            FROM Product
+                                            WHERE Stock <= 6 and IsDiscontinued = 0";
                     reader = command.ExecuteReader();
                     while (reader.Read())
                     {
@@ -211,7 +205,6 @@ namespace Dashboard.Repositories
                 this.startDate = startDate;
                 this.endDate = endDate;
                 this.numberDays = (endDate - startDate).Days;
-
                 GetNumberItems(sales);
                 GetProductAnalisys(sales);
                 GetOrderAnalisys(sales);

@@ -86,7 +86,7 @@ namespace Dashboard.Views {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/WPF-LoginForm;component/views/loginview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Dashboard;component/views/loginview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\Views\LoginView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
