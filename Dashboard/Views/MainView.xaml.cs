@@ -83,7 +83,6 @@ namespace Dashboard.Views
                 {
                     Title = kvp.Key,
                     Values = new ChartValues<double> { kvp.Value }
-                    Series.DataLabelsProperty.
                 });
             }
             Labels = new[] { "" };
